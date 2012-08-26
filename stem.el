@@ -941,3 +941,4 @@ Porter のアルゴリズムに基づいて派生語を処理する関数"
 
 (provide 'stem)
 
+;;; stem.el ends here
