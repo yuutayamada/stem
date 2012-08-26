@@ -3,7 +3,8 @@
 ;;; $Id$
 
 ;;; Author: Tsuchiya Masatoshi <tsuchiya@pine.kuee.kyoto-u.ac.jp>
-;;; Keywords: stemming
+;; URL: https://github.com/yuutayamada/stem
+;; Keywords: stemming
 
 ;;; License:
 ;; This program is free software: you can redistribute it and/or modify
