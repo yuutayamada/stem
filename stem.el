@@ -29,6 +29,10 @@
 ;; 一次配布元
 ;;    http://www-nagao.kuee.kyoto-u.ac.jp/member/tsuchiya/elisp/xdic.html
 
+;;; History:
+;; 2012/8/26 Register stem.el to GitHub to utilize from Emacs another packages.
+;; And add GNU Public license for English.
+;; (by Yuta Yamada cokesboy"at"gmail.com)
 
 ;; -*- Emacs-Lisp -*-
 
