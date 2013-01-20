@@ -1,4 +1,4 @@
-;;; -*- coding: utf-8 -*-
+;;; -*- coding: utf-8 mode: emacs-lisp -*-
 ;;; stem.el ---- routines for stemming
 ;;; $Id$
 
