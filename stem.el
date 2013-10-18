@@ -1,5 +1,5 @@
 ;;; -*- coding: utf-8 mode: emacs-lisp -*-
-;;; stem.el ---- routines for stemming
+;;; stem.el --- routines for stemming
 ;;; $Id$
 
 ;;; Author: Tsuchiya Masatoshi <tsuchiya@pine.kuee.kyoto-u.ac.jp>
