@@ -36,6 +36,7 @@
 ;; And add GNU Public license for English.
 ;; (by Yuta Yamada cokesboy"at"gmail.com)
 
+;;; Code:
 ;; -*- Emacs-Lisp -*-
 
 (defvar stem:minimum-word-length 4
