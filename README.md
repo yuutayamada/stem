@@ -9,12 +9,15 @@ It's library that is excluded conjugative suffix of English word.
 いるアルゴリズムに基づいて、英単語の語尾を取り除くためのライブラリ。
 
 ## Usage
+
+```lisp
 ;; exclude conjugative suffix and return list by dictionary order
 (stem:stripping-suffix "excluding")  ; -> ("exclud" "exclude" "excluding")
 ;; exclude conjugative suffix and return list by ascending-order.
 (stem-english "excluding") ; -> ("exclud" "exclude" "excluding")
 ;; apply M.F.Porter algorithm
 (stem:stripping-inflection "excluding") ; -> "exclud"
+```
 
 ## 作者様へ
 Emacsのパッケージ(logalimacs.el)から利用する為にGitHubに登録しました。
