@@ -1,5 +1,4 @@
-;;; -*- coding: utf-8 mode: emacs-lisp -*-
-;;; stem.el ---- routines for stemming
+;;; stem.el --- Routines for stemming
 ;;; $Id$
 
 ;;; Author: Tsuchiya Masatoshi <tsuchiya@pine.kuee.kyoto-u.ac.jp>
@@ -35,7 +34,11 @@
 ;; And add GNU Public license for English.
 ;; (by Yuta Yamada cokesboy"at"gmail.com)
 
-;; -*- Emacs-Lisp -*-
+;; Local Variables:
+;; coding: utf-8
+;; mode: emacs-lisp
+;; End:
+
 
 (defvar stem:minimum-word-length 4 "Porter のアルゴリズムが適用できる最小語長")
 
