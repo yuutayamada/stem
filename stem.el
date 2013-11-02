@@ -1,4 +1,4 @@
-;;; stem.el --- routines for stemming
+;;; stem.el --- Routines for stemming
 ;;; $Id$
 
 ;;; Author: Tsuchiya Masatoshi <tsuchiya@pine.kuee.kyoto-u.ac.jp>
