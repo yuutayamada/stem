@@ -1,5 +1,4 @@
-;;; -*- coding: utf-8 mode: emacs-lisp -*-
-;;; stem.el ---- routines for stemming
+;;; stem.el --- routines for stemming
 ;;; $Id$
 
 ;;; Author: Tsuchiya Masatoshi <tsuchiya@pine.kuee.kyoto-u.ac.jp>
@@ -959,5 +958,10 @@ Porter のアルゴリズムに基づいて派生語を処理する関数"
 	(stem:step1 word)))))))
 
 (provide 'stem)
+
+;; Local Variables:
+;; coding: utf-8
+;; mode: emacs-lisp
+;; End:
 
 ;;; stem.el ends here
