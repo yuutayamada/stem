@@ -51,38 +51,39 @@
 ;;	stemming-rule の条件節を記述する関数群
 ;;------------------------------------------------------------
 
-(defsubst stem:match (arg) "\
+(with-no-warnings
+  (defsubst stem:match (arg) "\
 変数 str を検査する非公開関数 (語幹の部分を変数 stem に代入する)"
-  (and
-   (string-match arg str)
-   (setq stem (substring str 0 (match-beginning 0)))))
+    (and
+     (string-match arg str)
+     (setq stem (substring str 0 (match-beginning 0)))))
 
-(defsubst stem:m () "\
+  (defsubst stem:m () "\
 変数 stem に含まれている VC の数を求める非公開関数"
-  (save-match-data
-    (let ((pos 0)(m 0))
-      (while (string-match "\\(a\\|e\\|i\\|o\\|u\\|[^aeiou]y+\\)[aeiou]*" stem pos)
-	(setq m (1+ m))
-	(setq pos (match-end 0)))
-      (if (= pos (length stem)) (1- m) m))))
+    (save-match-data
+      (let ((pos 0)(m 0))
+        (while (string-match "\\(a\\|e\\|i\\|o\\|u\\|[^aeiou]y+\\)[aeiou]*" stem pos)
+          (setq m (1+ m))
+          (setq pos (match-end 0)))
+        (if (= pos (length stem)) (1- m) m))))
 
-(defsubst stem:m> (i) "\
+  (defsubst stem:m> (i) "\
 変数 stem に含まれている VC の数の条件を記述する非公開関数"
-  (< i (stem:m)))
+    (< i (stem:m)))
 
-(defsubst stem:m= (i) "\
+  (defsubst stem:m= (i) "\
 変数 stem に含まれている VC の数の条件を記述する非公開関数"
-  (= i (stem:m)))
+    (= i (stem:m)))
 
-(defsubst stem:*v* () "\
+  (defsubst stem:*v* () "\
 変数 stem が母音を含んでいるか検査する関数"
-  (save-match-data
-    (if (string-match "\\(a\\|e\\|i\\|o\\|u\\|[^aeiou]y\\)" stem) t)))
+    (save-match-data
+      (if (string-match "\\(a\\|e\\|i\\|o\\|u\\|[^aeiou]y\\)" stem) t)))
 
-(defsubst stem:*o () "\
+  (defsubst stem:*o () "\
 変数 stem が cvc の形で終っているか検査する関数"
-  (save-match-data
-    (if (string-match "[^aeiou][aeiouy][^aeiouwxy]$" stem) t)))
+    (save-match-data
+      (if (string-match "[^aeiou][aeiouy][^aeiouwxy]$" stem) t))))
 
 
 
