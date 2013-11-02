@@ -901,7 +901,7 @@
             (list (substring str -5 -4)))
            ((stem:match "ing$") '("" "e"))
            ))
-  (append (mapcar '(lambda (s) (concat stem s)) l)
+  (append (mapcar (lambda (s) (concat stem s)) l)
           (list str))
   )))
 
@@ -915,22 +915,21 @@
 活用語尾を取り除く関数
 与えられた語の元の語として可能性のある語の辞書順のリストを返す"
   (save-match-data
-    (delq nil
-          (let ((w ""))
-            (mapcar
-             (function (lambda (x) (if (string= x w) nil (setq w x))))
-             (sort (append
-                    ;; 大文字を小文字に変換
-                    (list (prog1 str (setq str (downcase str))))
-                    ;; 独自のヒューリスティックスを適用
-                    (stem:extra str)
-                    (if (> (length str) stem:minimum-word-length)
-                        ;; 単語長が条件を満たせば、Porter のアルゴリズムを適用
-                        (mapcar
-                         (lambda (func)
-                           (setq str (funcall func str)))
-                         '(stem:step1 stem:step2 stem:step3 stem:step4 stem:step5))))
-                   'string<))))))
+    (delq nil (let ((w ""))
+		(mapcar
+     (function (lambda (x) (if (string= x w) nil (setq w x))))
+     (sort (append
+			;; 大文字を小文字に変換
+			(list (prog1 str (setq str (downcase str))))
+			;; 独自のヒューリスティックスを適用
+			(stem:extra str)
+			(if (> (length str) stem:minimum-word-length)
+          ;; 単語長が条件を満たせば、Porter のアルゴリズムを適用
+          (mapcar
+           (lambda (func)
+             (setq str (funcall func str)))
+           '(stem:step1 stem:step2 stem:step3 stem:step4 stem:step5))))
+           'string<))))))
 
 
 ;;;###autoload
