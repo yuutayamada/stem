@@ -20,7 +20,9 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-
+;; This library is basing on thesis 'An algorithm for suffix stripping
+;; (M.F.Porter)' that trim English word's suffix.
+;;
 ;; 論文『An algorithm for suffix stripping (M.F.Porter)』に記述されて
 ;; いるアルゴリズムに基づいて、英単語の語尾を取り除くためのライブラリ。
 ;; 利用及び再配布の際は、GNU 一般公用許諾書の適当なバージョンにしたがっ
@@ -36,12 +38,16 @@
 
 ;; -*- Emacs-Lisp -*-
 
-(defvar stem:minimum-word-length 4 "Porter のアルゴリズムが適用できる最小語長")
-
+(defvar stem:minimum-word-length 4
+  "Minimum word length that can apply Porter's algorithm.")
 
 ;;;============================================================
-;;;	非公開関数
+;;;	Private functions / 非公開関数
 ;;;============================================================
+
+;; To up execution speed, there are changing external variable in
+;; function, possibility of unexpected side effects may occur with
+;; high. Therefore, do not call private function.
 
 ;; 動作速度を向上させるために、関数内部で外部変数をいじっている
 ;; 関数があり、予期しない副作用が発生する可能性が高い。従って、
@@ -908,7 +914,7 @@
 
 
 ;;;============================================================
-;;;	公開関数
+;;; Public functions / 公開関数
 ;;;============================================================
 
 (defun stem:stripping-suffix (str) "\
@@ -940,10 +946,10 @@
         (function (lambda (a b) (< (length a) (length b))))))
 
 ;; この stem-english の動作は、
-;; 
+;;
 ;;     Id: stem.el,v 1.4 1998/11/30 09:27:27 tsuchiya Exp tsuchiya
-;; 
-;; 以前のバージョンの stem.el で定義されていた stem:stripping-suffix 
+;;
+;; 以前のバージョンの stem.el で定義されていた stem:stripping-suffix
 ;; の動作と互換である。現在の stem:stripping-suffix は辞書順のリストを
 ;; 返すため、異なる動作とするようになっているので注意すること。
 
